@@ -9,6 +9,6 @@ app = core.App()
 CdkPipelineDemoStack(app, "cdk-pipeline-demo", 
 QueuePrinterStage.QueuePrinter(app, "queueprinter")
                     ,
-                    QueuePrinterStage.QueuePrinter(app, "queueprinter", env = { "account": "649766597883", "region": "us-east-1" })
+                    QueuePrinterStage.QueuePrinter(app, "queueprinter", env = { "account": "649766597883", "region": "us-east-1" }))
 
 app.synth()
