@@ -7,7 +7,7 @@ from aws_cdk import (core,
 
 class CdkPipelineDemoStack(core.Stack):
 
-    def __init__(self, scope: core.Construct, id: str, the_application: core.Stage, **kwargs) -> None:
+    def __init__(self, scope: core.Construct, id: str, the_application: core.Stage, the_application_ue1: core.Stage, **kwargs) -> None:
         super().__init__(scope, id, **kwargs)
 
         source_artifact = aws_codepipeline.Artifact()
@@ -38,3 +38,4 @@ class CdkPipelineDemoStack(core.Stack):
         # The code that defines your stack goes here
 
         pipeline.add_application_stage(the_application)
+        pipeline.add_application_stage(the_application_ue1)
