@@ -25,6 +25,7 @@ class CdkPipelineDemoStack(core.Stack):
 
         
         synth_action = pipelines.SimpleSynthAction(
+            install_command="pip install -r requirements.txt",
             synth_command="npx cdk synth",
             source_artifact=source_artifact,
             cloud_assembly_artifact=cloud_artifact
