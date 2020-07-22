@@ -10,7 +10,7 @@ class PublishingLambdaStack(core.Stage):
 
         self.function = _lambda.Function(self, "PublishingLambda",
                                          code=_lambda.Code.from_asset(
-                                             path.join(__file__, '../../' 'publishing_lambda')),
+                                             path.normpath(path.join(__file__, '../../' 'publishing_lambda'))),
                                          runtime=_lambda.Runtime.PYTHON_3_7,
                                          handler='main.handler',
                                          environment={
