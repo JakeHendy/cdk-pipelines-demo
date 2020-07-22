@@ -23,7 +23,7 @@ queue = sqs.get_queue_by_name(QueueName=QUEUE_NAME)
 
 def handler(event: Dict[str, str], context: Dict[str, str]) -> Dict[str, str]:
     print("Lambda running")
-    has_key = "number_of_messages" in event.keys
+    has_key = "number_of_messages" in event
     number_of_messages = event["number_of_messages"] if has_key else 10
 
     for i in range(0, number_of_messages):
