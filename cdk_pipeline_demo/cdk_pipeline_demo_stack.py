@@ -23,9 +23,12 @@ class CdkPipelineDemoStack(core.Stack):
             trigger=aws_codepipeline_actions.GitHubTrigger.WEBHOOK
         )
 
-        synth_action = pipelines.SimpleSynthAction.standard_npm_synth(
-            source_artifact=source_artifact, cloud_assembly_artifact=cloud_artifact)
-
+        
+        synth_action = pipelines.SimpleSynthAction(
+            synth_command="npx cdk synth",
+            source_artifact=source_artifact,
+            cloud_assembly_artifact=cloud_artifact
+        ) 
         pipeline = pipelines.CdkPipeline(self, "Pipeline",
         
                                          cloud_assembly_artifact=cloud_artifact,
