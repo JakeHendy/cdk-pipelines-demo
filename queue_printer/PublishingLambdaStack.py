@@ -1,4 +1,4 @@
-from aws_cdk import (core, aws_lambda as _lambda, aws_sqs as sqs)
+from aws_cdk import (core, aws_lambda as _lambda, aws_sqs as sqs, aws_s3_assets as s3a)
 from os import path
 
 from .InboundQueueStack import InboundQueueStack
@@ -9,7 +9,7 @@ class PublishingLambdaStack(core.Stage):
         super().__init__(scope, id, **kwargs)
 
         self.function = _lambda.Function(self, "PublishingLambda",
-                                         code=_lambda.Code.from_asset('publishing_lambda'),
+                                         code=_lambda.Code.from_asset('queue_printer/publishing_lambda'),
                                          runtime=_lambda.Runtime.PYTHON_3_7,
                                          handler='main.handler',
                                          environment={
