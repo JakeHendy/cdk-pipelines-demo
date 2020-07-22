@@ -9,8 +9,7 @@ class PublishingLambdaStack(core.Stage):
         super().__init__(scope, id, **kwargs)
 
         self.function = _lambda.Function(self, "PublishingLambda",
-                                         code=_lambda.Code.from_asset(
-                                             path.normpath(path.join(__file__, '../../' 'publishing_lambda'))),
+                                         code=_lambda.Code.from_asset('publishing_lambda'),
                                          runtime=_lambda.Runtime.PYTHON_3_7,
                                          handler='main.handler',
                                          environment={
