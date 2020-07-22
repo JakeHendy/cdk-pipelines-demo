@@ -35,7 +35,7 @@ def handler(event: Dict[str, str], context: Dict[str, str]) -> Dict[str, str]:
                                              """
                                          ),
                                          runtime=_lambda.Runtime.PYTHON_3_7,
-                                         handler='main.handler',
+                                         handler='index.handler',
                                          environment={
                                              "QUEUE_NAME": inbound_queue.queue_name
                                          }
